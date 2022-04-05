@@ -11,7 +11,11 @@ class InstructorController extends Controller
 
   public function index()
   {
-
+    
+    $instructor = new Instructor("","","","","","","");
+    $instructors = $instructor->showTable();
+    $this->view->instructors = $instructors;
+    $this->view->show('instructor/list');
   }
 
   public function create()

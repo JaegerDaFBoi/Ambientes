@@ -8,13 +8,17 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="#">Lista de Instructores</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo APP_URL; ?>instructor/index">Lista de Instructores</a></li>
           </ol>
         </div>
       </div>
     </div>
   </section>
-
+  <div class="row">
+    <div class="col-md-6">
+      
+    </div>
+  </div>
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -55,11 +59,11 @@
                   <div class="form-group col-md-4">
                     <label for="instructorType">Tipo de Instructor</label>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="instructorType">
+                      <input class="form-check-input" type="radio" name="instructorType" value="Virtual">
                       <label class="form-check-label">Virtual</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="instructorType">
+                      <input class="form-check-input" type="radio" name="instructorType" value="Presencial">
                       <label class="form-check-label">Presencial</label>
                     </div>
                   </div>
@@ -68,11 +72,11 @@
                   <div class="form-group col-md-8">
                     <label for="instructorVinculation">Vinculación</label>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="instructorVinculation">
+                      <input class="form-check-input" type="radio" name="instructorVinculation" value="Planta">
                       <label class="form-check-label">Planta</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="instructorVinculation">
+                      <input class="form-check-input" type="radio" name="instructorVinculation" value="Contratista">
                       <label class="form-check-label">Contratista</label>
                     </div>
                   </div>

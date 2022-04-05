@@ -13,7 +13,7 @@ class Instructor extends Model
 
   public function __construct($name,$doc,$area,$type,$vinculation,$hours)
   {
-
+    parent::__construct();
     $this->name = $name;
     $this->doc = $doc;
     $this->area = $area;
@@ -31,6 +31,18 @@ class Instructor extends Model
       $query->execute([":nombre"=>$this->name, ":cedula"=>$this->doc, ":area"=>$this->area, ":tipo"=>$this->type, ":vinculacion"=>$this->vinculation, ":totalhoras"=>$this->hours]);
     } catch (PDOException $e) {
       die("Error al guardar registro: ".$e->getMessage());
+    }
+  }
+
+  public function showTable()
+  {
+    try {
+      $sql = "SELECT * FROM instructores";
+      $query = $this->connection->prepare($sql);
+      $instructors = $query->fetchAll(PDO::FETCH_OBJ);
+      return $instructors;
+    } catch (PDOException $e) {
+      die("Error al mostrar datos: ".$e->getMessage());
     }
   }
 }
