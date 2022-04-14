@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="card-body table-responsive p-0">
-          <table class="table table-hover text-nowrap">
+          <table class="table table-hover table-bordered text-nowrap">
             <thead>
               <tr>
                 <th>ID</th>
@@ -59,6 +59,10 @@
                 <td><?php echo $instructor->tipo ?></td>
                 <td><?php echo $instructor->vinculacion ?></td>
                 <td><?php echo $instructor->totalhoras ?></td>
+                <td>
+                  <a href="<?php echo ('edit?id='.$instructor->id) ?>">✍</a>
+                  <a href="<?php echo ('delete?id='.$instructor->id) ?>">❌</a>
+                </td>
             </tbody>
             <?php
                 }

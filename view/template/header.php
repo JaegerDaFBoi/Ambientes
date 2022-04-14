@@ -31,7 +31,7 @@
 <div class="wrapper">
 
   <!-- Barra Superior -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-orange navbar-dark">
     <!-- Links de la barra de navegacion a la izquierda -->
     <ul class="navbar-nav">
       <li class="nav-item">
