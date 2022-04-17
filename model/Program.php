@@ -40,7 +40,7 @@ class Program extends Model
   public function showTable()
   {
     try {
-      $sql =$this->connection->query("SELECT * FROM programas");
+      $sql = $this->connection->query("SELECT id, codigo, nombre, duracionlectiva, duracionpractica, nivelformacion, perfilinstructor, descripcion, ROUND((duracionlectiva+duracionpractica)/3) AS totaltrimestres FROM programas");
       $programs = $sql->fetchAll(PDO::FETCH_OBJ);
       return $programs;
     } catch (PDOException $e) {
@@ -48,4 +48,36 @@ class Program extends Model
     }
   }
 
+  public function searchProgram()
+  {
+    try {
+      $sql = $this->connection->query("SELECT * FROM programas WHERE id=".$_GET['id']);
+      $program = $sql->fetchAll(PDO::FETCH_OBJ);
+      return $program;
+    } catch (PDOException $e) {
+      die("Error al traer datos: ".$e->getMessage());
+    }
+  }
+
+  public function updateProgram($id)
+  {
+    try {
+      $sql = "UPDATE programas SET codigo=:codigo, nombre=:nombre, duracionlectiva=:duracionlectiva, duracionpractica=:duracionpractica, nivelformacion=:nivelformacion, perfilinstructor=:perfilinstructor, descripcion=:descripcion WHERE id=:id";
+      $query = $this->connection->prepare($sql);
+      $query->execute([":codigo"=>$this->code, ":nombre"=>$this->name, ":duracionlectiva"=>$this->schoolstagetime, ":duracionpractica"=>$this->practicalstagetime, ":nivelformacion"=>$this->formationlevel, ":perfilinstructor"=>$this->instructorprofile, ":descripcion"=>$this->description, ":id"=>$id]);
+    } catch (PDOException $e) {
+      die("Error al actualizar datos: ".$e->getMessage());
+    }
+  }
+
+  public function deleteProgram($id)
+  {
+    try {
+      $sql = "DELETE FROM programas WHERE id=:id";
+      $query = $this->connection->prepare($sql);
+      $query->execute([":id"=>$id]);
+    } catch (PDOException $e) {
+      die("Error al eliminar datos: ".$e->getMessage());
+    }
+  }
 }

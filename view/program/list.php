@@ -14,6 +14,15 @@
     </div>
   </section>
   <div class="row">
+    <div class="col-md-6">
+      <a href="<?php echo APP_URL; ?>program/create">
+      <button type="button" class="btn btn-primary float-left" style="margin-right: 5px;">
+        Crear Nuevo Registro
+      </button>
+      </a>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="card-header">
@@ -38,13 +47,32 @@
                 <th>Nivel de formacion</th>
                 <th>Perfil del instructor</th>
                 <th>Descripcion</th>
-                <th>Competencias</th>
                 <th>Trimestres en total</th>
+                <th>Competencias</th>
               </tr>
             </thead>
             <tbody>
-              
+              <?php
+              foreach ($this->programs as $program) {
+              ?>
+              <td><?php echo $program->id ?></td>
+              <td><?php echo $program->codigo ?></td>
+              <td><?php echo $program->nombre ?></td>
+              <td><?php echo $program->duracionlectiva ?></td>
+              <td><?php echo $program->duracionpractica ?></td>
+              <td><?php echo $program->nivelformacion ?></td>
+              <td><?php echo $program->perfilinstructor ?></td>
+              <td><?php echo $program->descripcion ?></td>
+              <td><?php echo $program->totaltrimestres ?></td>
+              <td><a>Comp</a></td>
+              <td>
+                <a href="<?php echo ('edit?id='.$program->id) ?>">✍</a>
+                <a href="<?php echo ('delete?id='.$program->id) ?>">❌</a>
+              </td>                
             </tbody>
+            <?php
+              }
+            ?>  
           </table>
         </div>
       </div>
