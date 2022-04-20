@@ -77,7 +77,7 @@ class Card extends Model
       $query = $this->connection->prepare($sql);
       $query->execute([":id"=>$id]);
     } catch (PDOException $e) {
-      die;
+      die("Error al eliminar datos: ".$e->getMessage());
     }
   }
 }
