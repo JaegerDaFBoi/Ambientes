@@ -63,7 +63,7 @@
               <td><?php echo $card->fechafin ?></td>
               <td><?php echo $card->nombreinstructor ?></td>
               <td><?php echo $card->cantidad ?></td>
-              <td></td>   
+              <td><a href="<?php echo ('edit?id='.$card->id) ?>">✏</a></td>   
             </tbody>
             <?php
               }

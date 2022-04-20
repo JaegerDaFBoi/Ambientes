@@ -1,7 +1,7 @@
 <?php
 
-/*define('APP_URL','http://localhost/adsi/Ambientes/');*/
-define('APP_URL','http://localhost/repositorios/Ambientes/');
+define('APP_URL','http://localhost/adsi/Ambientes/');
+/*define('APP_URL','http://localhost/repositorios/Ambientes/');*/
 
 define('DBTYPE', 'mysql');
 define('DBHOST', 'localhost');
