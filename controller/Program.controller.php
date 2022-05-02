@@ -86,4 +86,12 @@ class ProgramController extends Controller
     $this->view->programs = $programs;
     $this->view->show('program/list');
   }
+
+  public function listC()
+  {
+    $program = new Program("","","","","","","");
+    $program = $program->searchProgram();
+    $this->view->program = $program;
+    $this->view->show('competence/list');
+  }
 }

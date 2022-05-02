@@ -64,7 +64,7 @@
               <td><?php echo $program->perfilinstructor ?></td>
               <td><?php echo $program->descripcion ?></td>
               <td><?php echo $program->totaltrimestres ?></td>
-              <td><a>Comp</a></td>
+              <td><a href="<?php echo ('listC?id='.$program->id) ?>">Competencias</a></td>
               <td>
                 <a href="<?php echo ('edit?id='.$program->id) ?>">✍</a>
                 <a href="<?php echo ('delete?id='.$program->id) ?>">❌</a>
