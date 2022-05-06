@@ -1,4 +1,27 @@
 <div class="content-wrapper">
+<section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Lista de Instructores</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="<?php echo APP_URL; ?>initial/index">Inicio</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="row">
+    <div class="col-md-6">
+      <a href="<?php echo APP_URL; ?>instructor/create">
+      <button type="button" class="btn btn-primary float-left" style="margin-right: 5px;">
+        Crear Nuevo Registro
+      </button>
+      </a>
+    </div>
+  </div>
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -13,7 +36,7 @@
           </div>
         </div>
         <div class="card-body table-responsive p-0">
-          <table class="table table-hover text-nowrap">
+          <table class="table table-hover table-bordered text-nowrap">
             <thead>
               <tr>
                 <th>ID</th>
@@ -22,12 +45,30 @@
                 <th>Área</th>
                 <th>Tipo de Instructor</th>
                 <th>Vinculacion contractual</th>
-                <th>Total de Horas</th>
+                <th>Horas Semanales</th>
+                <th>E-mail</th>
               </tr>
             </thead>
             <tbody>
-                
+                <?php 
+                foreach ($this->instructors as $instructor) {
+                ?>
+                <td><?php echo $instructor->id ?></td>
+                <td><?php echo $instructor->nombre ?></td>
+                <td><?php echo $instructor->cedula ?></td>
+                <td><?php echo $instructor->area ?></td>
+                <td><?php echo $instructor->tipo ?></td>
+                <td><?php echo $instructor->vinculacion ?></td>
+                <td><?php echo $instructor->horassemana ?></td>
+                <td><?php echo $instructor->email ?></td>
+                <td>
+                  <a href="<?php echo ('edit?id='.$instructor->id) ?>">✍</a>
+                  <a href="<?php echo ('delete?id='.$instructor->id) ?>">❌</a>
+                </td>
             </tbody>
+            <?php
+                }
+                ?>
           </table>
         </div>
       </div>

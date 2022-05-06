@@ -3,35 +3,105 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Registro de Instructores</h1>
+          <h1>Detalles del Instructor</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="#">Lista de Instructores</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo APP_URL; ?>instructor/index">Lista de Instructores</a></li>
           </ol>
         </div>
       </div>
     </div>
   </section>
+  <div class="row">
+    <div class="col-md-6">
 
+    </div>
+  </div>
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4">
+          <div class="card card-primary">
+            <?php foreach ($this->instructor as $instructor) { ?>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Indice</label>
+                  <p><?php echo $instructor->id; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Nombre</label>
+                  <p><?php echo $instructor->nombre; ?><p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Cédula</label>
+                  <p><?php echo $instructor->cedula; ?><p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Área</label>
+                  <p><?php echo $instructor->area; ?><p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Tipo</label>
+                  <p><?php echo $instructor->tipo; ?><p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Vinculación</label>
+                  <p><?php echo $instructor->vinculacion; ?><p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Total de horas</label>
+                  <p><?php echo $instructor->horassemana; ?><p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Correo Electronico</label>
+                  <p><?php echo $instructor->email; ?></p>
+                </div>
+              </div>
+              <?php } ?>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Formulario de registro</h3>
+              <label>Formulario de actualización de datos</label>
             </div>
-            <form role="form" method="POST" action="<?php echo APP_URL; ?>instructor/save">
+            <form role="form" method="POST" action="<?php echo APP_URL; ?>instructor/update">
+            <?php foreach ($this->instructor as $instructor) { ?>
               <div class="card-body">
-                <div class="form-group col-md-12">
-                  <label for="instructorName">Nombre del Instructor</label>
-                  <input type="text" class="form-control" id="instructorName" name="instructorName" placeholder="Escriba el nombre aqui...">
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="hidden" id="idInstructor" name="idInstructor" value="<?php echo $instructor->id; ?>">
+                  </div>
                 </div>
-                <div class="form-group col-md-4">
-                  <label for="instructorDoc">Cédula</label>
-                  <input type="number" class="form-control" id="instructorDoc" name="instructorDoc" placeholder="Ingrese cédula aqui...">
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label for="instructorName">Nombre del Instructor</label>
+                    <input type="text" class="form-control" id="instructorName" name="instructorName" value="<?php echo $instructor->nombre; ?>">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label for="instructorDoc">Cédula</label>
+                    <input type="number" class="form-control" id="instructorDoc" name="instructorDoc" value="<?php echo $instructor->cedula; ?>">
+                  </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-8">
@@ -78,24 +148,22 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label for="instructorHours">Total/horas del Instructor</label>
-                    <input type="number" class="form-control" id="instructorHours" name="instructorHours">
+                    <input type="number" class="form-control" id="instructorHours" name="instructorHours" value="<?php echo $instructor->horassemana; ?>">
                   </div>  
                 </div>
                 <div class="row">
                   <div class="form-group col-md-8">
                     <label for="instructorEmail">Correo Electronico</label>
-                    <input type="email" class="form-control" id="instructorEmail" name="instructorEmail"> 
+                    <input type="email" class="form-control" id="instructorEmail" name="instructorEmail" value="<?php echo $instructor->email; ?>"
                   </div>
                 </div>
+                <?php } ?>
                 <div class="row">
-                  <div class="col-md-6">
-                    <button type="submit" class="btn btn-dark">
-                      Guardar Registro
-                    </button>
+                  <div class="col-md-12">
+                    <input type="submit" class="btn btn-primary" value="Actualizar">
                   </div>
                 </div>
               </div>
-            </div>
             </form>
           </div>
         </div>
