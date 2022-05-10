@@ -48,6 +48,6 @@ class Competence extends Model
 
   public function searchCompetence()
   {
-
+    
   }
 }
