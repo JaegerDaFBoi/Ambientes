@@ -7,6 +7,7 @@ class ProgramController extends Controller
   {
     parent::__construct();
     $this->loadModel("Program");
+    $this->loadModel("Competence");
   }
 
   public function index()
@@ -88,5 +89,17 @@ class ProgramController extends Controller
     $programs = $program->showTable();
     $this->view->programs = $programs;
     $this->view->show('program/list');
+  }
+
+  public function listC()
+  {
+    $program = new Program("","","","","","","","");
+    $program = $program->searchProgram();
+    $this->view->program = $program;
+
+    $competences = new Competence("","","","");
+    $competences = $competences->showTable();
+    $this->view->competences = $competences;
+    $this->view->show('competence/list');
   }
 }

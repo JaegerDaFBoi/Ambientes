@@ -16,7 +16,7 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12"> 
           <div class="card card-primary">
             <div class="card-body">
               <p class="card-text">Confirme los datos antes de eliminar el registro</p>
