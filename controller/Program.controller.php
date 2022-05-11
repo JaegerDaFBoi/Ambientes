@@ -35,8 +35,9 @@ class ProgramController extends Controller
 
   public function edit()
   {
+    $id = $_GET['id'];
     $program = new Program("", "", "", "", "", "", "", "");
-    $program = $program->searchProgram();
+    $program = $program->searchProgram($id);
     $this->view->program = $program;
     $this->view->show('program/edit');
   }
@@ -64,8 +65,9 @@ class ProgramController extends Controller
 
   public function delete()
   {
+    $id = $_GET['id'];
     $program = new Program("", "", "", "", "", "", "", "");
-    $program = $program->searchProgram();
+    $program = $program->searchProgram($id);
     $this->view->program = $program;
     $this->view->show('program/delete');
   }
@@ -93,12 +95,13 @@ class ProgramController extends Controller
 
   public function listC()
   {
+    $id = $_GET['id'];
     $program = new Program("","","","","","","","");
-    $program = $program->searchProgram();
+    $program = $program->searchProgram($id);
     $this->view->program = $program;
 
     $competences = new Competence("","","","");
-    $competences = $competences->showTable();
+    $competences = $competences->showTable($id);
     $this->view->competences = $competences;
     $this->view->show('competence/list');
   }

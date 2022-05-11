@@ -22,8 +22,9 @@
             <div class="card-header">
               <h3 class="card-title">Formulario de registro</h3>
             </div>
-            <form role="form" method="POST" action="<?php echo APP_URL; ?>competence/save">
+            <form role="form" method="POST" action="<?php echo APP_URL; ?>competence/save?id=".<?php echo $this->program[0]->id; ?>>
               <div class="card-body">
+                <?php echo var_dump($this->program[0]->id); ?>
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="competenceCode">Codigo</label>
@@ -47,7 +48,7 @@
                     <label for="competenceProgram">Programa de formacion</label>
                     <div class="row">
                       <div class="col-md-12">
-                        <input type="hidden" name="competenceId" value="<?php echo $this->program[0]->id; ?>">
+                        <input  type="hidden" name="competenceProgramId" value="<?php echo $this->program[0]->id; ?>">
                         <input disabled type="text" name="competenceProgram" value="<?php echo $this->program[0]->nombre; ?>">
                       </div>
                     </div>

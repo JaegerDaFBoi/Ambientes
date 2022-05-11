@@ -48,15 +48,24 @@ class Program extends Model
     }
   }
 
-  public function searchProgram()
+  public function searchProgram($id)
   {
     try {
-      $sql = $this->connection->query("SELECT * FROM programas WHERE id=" . $_GET['id']);
-      $program = $sql->fetchAll(PDO::FETCH_OBJ);
+      $sql = "SELECT * FROM programas WHERE id=:id";
+      $query = $this->connection->prepare($sql);
+      $query->execute([":id"=>$id]);
+      $program = $query->fetchAll(PDO::FETCH_OBJ);
       return $program;
     } catch (PDOException $e) {
       die("Error al traer datos: " . $e->getMessage());
     }
+    /*try {
+      $sql = $this->connection->query("SELECT * FROM programas WHERE id=".$_GET['id']);
+      $program = $sql->fetchAll(PDO::FETCH_OBJ);
+      return $program;
+    } catch (PDOException $e) {
+      die("Error al traer datos: " . $e->getMessage());
+    }*/
   }
 
   public function updateProgram($id)
